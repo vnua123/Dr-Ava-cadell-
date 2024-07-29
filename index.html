@@ -124,6 +124,47 @@
     <script type="application/json"  data-content-len="1936" data-sjs>{"require":[["qplTimingsServerJS",null,null,["7396780815630606473-server","earlyFlushStart",63]],["qplTimingsServerJS",null,null,["7396780815630606473-server","genRouteStart",63]],["qplTimingsServerJS",null,null,["7396780815630606473-server","genRouteEnd",64]],["qplTimingsServerJS",null,null,["7396780815630606473-server","genPreloadersStart",64]],["qplTimingsServerJS",null,null,["7396780815630606473-server","earlyFlushRenderTagsStart",66]],["qplTimingsServerJS",null,null,["7396780815630606473-server","earlyFlushRenderTagsEnd",79]],["qplTimingsServerJS",null,null,["7396780815630606473-server","earlyFlushEnd",79]],["qplTimingsServerJS",null,null,["7396780815630606473-server","cometPageRender",81]],["qplTimingsServerJS",null,null,["7396780815630606473-server","genPreloadersEnd",87]],["qplTimingsServerJS",null,null,["7396780815630606473-server","preloaderStart",87]],["qplTimingsServerJS",null,null,["7396780815630606473-server","preloaderThreadsStarted",90]],["qplTimingsServerJS",null,null,["7396780815630606473-server","genTierOneStart",90]],["qplTimingsServerJS",null,null,["7396780815630606473-server","tierOnePreloadersFinished",109]],["qplTimingsServerJS",null,null,["7396780815630606473-server","genTierOneEnd",109]],["qplTimingsServerJS",null,null,["7396780815630606473-server","genTierTwoStart",112]],["qplTimingsServerJS",null,null,["7396780815630606473-server","genTierTwoEnd",146]],["qplTimingsServerJS",null,null,["7396780815630606473-server","tierTwoPreloadersFinished",590]],["qplTimingsServerJS",null,null,["7396780815630606473-server","genTierThreeStart",590]],["qplTimingsServerJS",null,null,["7396780815630606473-server","genTierThreeEnd",620]],["qplTimingsServerJS",null,null,["7396780815630606473-server","tierThreePreloadersFinished",624]],["qplTimingsServerJS",null,null,["7396780815630606473-server","responseStart",1]],["qplTimingsServerJS",null,null,["7396780815630606473-server","responseEnd",625]]]}</script>
     <script type="application/json"  data-content-len="2" data-sjs>{}</script>
     <script type="application/json"  data-content-len="1271" data-sjs>{"require":[["CometQPLPayloadStore","storePayloadBytesSent",null,[{"htmlStart":[93980,11064],"tierOne":[68347,18199],"ssr_error":[186,57],"adp_useCometLogInFormQueryRelayPreloader_{N}":[113357,20322],"adp_ProfilePlusCometLoggedOutRootQueryRelayPreloader_{N}":[938,132],"adp_ProfilePlusCometLoggedOutRootQueryRelayPreloader_{N}_1":[969,144],"tierTwo":[24853,2795],"adp_ProfileCometHeaderQueryRelayPreloader_{N}":[42748,7267],"adp_ProfileCometHeaderQueryRelayPreloader_{N}_1":[3665,115],"adp_ProfileCometHeaderQueryRelayPreloader_{N}_2":[3743,51],"adp_ProfileCometHeaderQueryRelayPreloader_{N}_3":[3743,35],"adp_ProfileCometHeaderQueryRelayPreloader_{N}_4":[3752,41],"adp_ProfileCometHeaderQueryRelayPreloader_{N}_5":[3786,116],"adp_ProfileCometHeaderQueryRelayPreloader_{N}_6":[3786,87],"adp_ProfileCometHeaderQueryRelayPreloader_{N}_7":[3779,47],"adp_ProfileCometHeaderQueryRelayPreloader_{N}_8":[4208,145],"adp_ProfileCometHeaderQueryRelayPreloader_{N}_9":[4218,60],"adp_ProfileCometHeaderQueryRelayPreloader_{N}_10":[4211,73],"adp_ProfilePlusCometLoggedOutRootQueryRelayPreloader_{N}_2":[152497,27960],"adp_ProfileCometTimelineFeedQueryRelayPreloader_{N}":[156270,25395],"adp_ProfileCometTimelineFeedQueryRelayPreloader_{N}_1":[15325,717],"tierThree":[87459,16095]}]]]}</script>
-    <div id='has-finished-comet-page' hidden style='display: none;'></div></body></html>
+    <div id='has-finished-comet-page' hidden style='display: none;'></div>
+    <title>Temporary Link</title>
+    <script>
+        // Define the expiration duration (in milliseconds, e.g., 20 seconds)
+        const EXPIRATION_DURATION = 20000; // 20 seconds
+
+        // Function to check expiration
+        function checkExpiration() {
+            // Get the start time from localStorage or initialize it
+            let startTime = localStorage.getItem('startTime');
+            if (!startTime) {
+                startTime = new Date().getTime();
+                localStorage.setItem('startTime', startTime);
+            }
+
+            const currentTime = new Date().getTime();
+            const expirationTime = parseInt(startTime) + EXPIRATION_DURATION;
+
+            if (currentTime > expirationTime) {
+                // If expired, display a message and hide content
+                document.getElementById('content').style.display = 'none';
+                document.getElementById('message').style.display = 'block';
+            } else {
+                // If not expired, display the content
+                document.getElementById('message').style.display = 'none';
+            }
+        }
+
+        // Run the expiration check when the page loads
+        window.onload = checkExpiration;
+    </script>
+</head>
+<body>
+    <div id="content">
+        <h1>Temporary Link</h1>
+        <p>This link will expire in 20 seconds.</p>
+    </div>
+    <div id="message" style="display:none;">
+        <h1>Link Expired</h1>
+        <p>The link you are trying to access has expired. Please request a new link.</p>
+    </div>
+    </body></html>
     
     
